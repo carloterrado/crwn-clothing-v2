@@ -1,17 +1,17 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
 
-import App from './App';
-import { UserProvider } from './contexts/user.context';
-import { CategoriesProvider } from './contexts/categories.context';
-import { CartProvider } from './contexts/cart.context';
+import { BrowserRouter } from "react-router-dom";
+import { createRoot } from "react-dom/client";
 
-import './index.scss';
+import App from "./App";
+import { UserProvider } from "./contexts/user.context";
+import { CategoriesProvider } from "./contexts/categories.context";
+import { CartProvider } from "./contexts/cart.context";
 
-const rootElement = document.getElementById('root');
+import "./index.scss";
 
-render(
+const root = createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
@@ -22,6 +22,5 @@ render(
         </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
-  </React.StrictMode>,
-  rootElement
+  </React.StrictMode>
 );
