@@ -8,10 +8,10 @@ import {
   CartItems,
 } from "./cart-dropdown.styles";
 import { useSelector } from "react-redux";
-import { selectCartItemsSlice } from "../../store/cart/cart.selectors";
+import { selectCartItems } from "../../store/cart/cart.selectors";
 
 const CartDropdown = () => {
-  const cartItems = useSelector(selectCartItemsSlice);
+  const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
