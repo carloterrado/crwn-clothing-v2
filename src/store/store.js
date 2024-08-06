@@ -3,7 +3,6 @@ import { logger } from "redux-logger";
 import { rootReducer } from "./root.reducer";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { configureStore } from "@reduxjs/toolkit";
 
 const middlewares = [process.env.NODE_ENV === "development" && logger].filter(
   Boolean
@@ -20,7 +19,7 @@ const composeEnhancers = composeEnhancer(applyMiddleware(...middlewares));
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"],
+  whitelist: ["cart"],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
